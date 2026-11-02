@@ -119,14 +119,67 @@ tests/
 
 | 이름 | 담당 |
 | --- | --- |
-| 정지훈 | 판 인식, 변화 검출, 층 판정, AR, 설계 |
-| 이세윤 | 손 인식·상태 머신, 판정, 실험 1 |
-| 양수겸 | few-shot 인식, 실험 2 |
-| 김두은 | baseline, 통합, 서버·대시보드 |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
 
-## 기여 규칙
+## 개발 컨벤션
 
-- 브랜치: `main`(제출용) ← `dev`(통합) ← `feat/파트-기능`, `exp/실험명`, `fix/내용`
-- 커밋: `타입: 내용` (feat / fix / exp / data / refactor / docs / chore)
-- PR은 `dev`로, 팀원 1명 이상 확인 후 merge
-- `black` 포맷, `ruff` 린트
+### 브랜치
+
+| 브랜치 | 용도 | 예 |
+| --- | --- | --- |
+| `main` | 발표·제출용 안정 버전 | `dev`에서 PR로만 merge |
+| `dev` | 통합 개발 (**기본 브랜치**) | 기능 브랜치를 PR로 merge |
+| `feat/파트-기능` | 기능 개발 | `feat/hand-state-machine`, `feat/recog-fewshot` |
+| `exp/실험명` | 실험·분석 | `exp/multiframe-ablation` |
+| `fix/내용` | 버그 수정 | `fix/aruco-occlusion` |
+| `chore/내용` | 설정·문서·환경 | `chore/init-setup` |
+
+`main`·`dev`는 보호 브랜치라 직접 push가 안 된다. 작업은 항상 `dev`에서 브랜치를 따서 시작한다.
+
+```bash
+git fetch origin
+git checkout -b feat/hand-state-machine origin/dev
+# ... 작업, 커밋 ...
+git push -u origin feat/hand-state-machine   # → GitHub에서 dev로 PR
+```
+
+### 커밋 메시지
+
+형식 `타입: 내용` (한글 OK)
+
+| 타입 | 사용 | 예 |
+| --- | --- | --- |
+| `feat` | 새 기능 | `feat: 손 인식 상태 머신 추가` |
+| `fix` | 버그 수정 | `fix: 마커 가려질 때 자세 유지` |
+| `exp` | 실험 코드·결과 | `exp: 5-way 3-shot 캐글 평가` |
+| `data` | 데이터 스크립트·라벨 | `data: 녹화 라벨링 스크립트` |
+| `refactor` | 동작 변화 없는 정리 | `refactor: 인식 모듈 함수 분리` |
+| `docs` | README·문서·주석 | `docs: 설치 방법 추가` |
+| `chore` | 설정·패키지 | `chore: requirements 업데이트` |
+
+### PR
+
+- `dev`로 보내고, 팀원 1명 이상 확인 후 merge
+- 설명에 **무엇을 바꿨는지, 어떻게 확인했는지** 적기 (스크린샷·GIF 환영)
+- 제출 시점에 `dev` → `main` PR
+
+### 코드 스타일
+
+- Python 3.11, 가상환경 필수. 패키지 추가 시 `requirements.txt` 갱신
+- `black` 포맷, `ruff` 린트 (커밋 전 실행)
+- 이름: 함수·변수 `snake_case`, 클래스 `PascalCase`, 상수 `UPPER_CASE`
+- 공개 함수는 타입 힌트 + 한 줄 docstring (한글 OK)
+- 숫자 설정값(대기 프레임 수, 임계값 등)은 코드에 박지 말고 `configs/*.yaml`에
+- 기능은 설정으로 끄고 켤 수 있게 만든다 (실험에서 baseline과 비교하기 위해)
+- 좌표는 모듈 사이에서 **판 기준 mm**로 통일, 픽셀은 모듈 내부에서만
+- 각 모듈은 영상 파일 하나로 단독 실행되는 데모를 둔다 (`python -m assembleguide.<모듈>.demo --video x.mp4`)
+- 영상·가중치·데이터·`.env`·API 키는 커밋 금지
+
+### 실험 기록
+
+- 랜덤 시드 고정, 결과는 `results/{실험}_{YYMMDD}.csv` + 사용한 설정 `.yaml`
+- 학습·조정에 쓴 블록·영상은 최종 시험에서 제외, 분할 목록은 `splits/`에 기록
+- 시험 데이터를 보고 설정을 고치지 않는다
