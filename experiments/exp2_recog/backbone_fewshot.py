@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import random
 import time
 from datetime import datetime
@@ -58,17 +59,27 @@ def class_dirs(root: Path) -> list[Path]:
     )
 
 
-def find_data_root(base: Path = Path("/kaggle/input")) -> Path:
-    """클래스 폴더가 가장 많이 모인 디렉터리를 데이터 루트로 고른다."""
+def find_data_root(base: Path = Path("/kaggle/input"), max_depth: int = 5) -> Path:
+    """클래스 폴더가 가장 많이 모인 디렉터리를 데이터 루트로 고른다.
+
+    Kaggle 입력은 심볼릭 링크로 붙는 경우가 있어 링크도 따라간다.
+    """
     best, best_n = None, 0
-    for d in [base, *(p for p in base.rglob("*") if p.is_dir())]:
-        n = len(class_dirs(d))
+    for cur, subdirs, _ in os.walk(base, followlinks=True):
+        if len(Path(cur).relative_to(base).parts) >= max_depth:
+            subdirs.clear()
+            continue
+        n = len(class_dirs(Path(cur)))
         if n:
-            print(f"  [후보] {d}  ({n}개 클래스 폴더)")
+            print(f"  [후보] {cur}  ({n}개 클래스 폴더)")
         if n > best_n:
-            best, best_n = d, n
+            best, best_n = Path(cur), n
     if best is None or best_n < 6:
-        raise FileNotFoundError(f"{base} 아래에서 클래스 폴더를 못 찾음. --data-root 로 지정")
+        listing = "\n".join(f"    {p}" for p in sorted(base.glob("*/*"))[:30]) or "    (비어 있음)"
+        raise FileNotFoundError(
+            f"{base} 아래에서 클래스 폴더를 못 찾음. --data-root 로 지정\n"
+            f"  {base} 내용:\n{listing}"
+        )
     return best
 
 
