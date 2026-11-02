@@ -1,3 +1,60 @@
+# ── 현재 폴더의 개인 자료 (발표·녹화물, 레포에 안 올림) ──
+assembleGuide유튜브.mp4
+녹화_2026_10_24_21_24_12_546.mp4
+사전발표_전체_v2.pptx
+사전발표_후반_대본.md
+CLAUDE.md
+
+# ── 큰 파일: 영상·가중치·데이터 (CLAUDE.md 규칙) ──
+data/
+runs/
+*.mp4
+*.avi
+*.mov
+*.pt
+*.pth
+*.onnx
+*.npy
+*.npz
+
+# ── 발표·문서 원본 (결과물은 따로 제출) ──
+*.pptx
+*.docx
+*.hwp
+
+# ── 비밀 정보 ──
+.env
+.env.*
+kaggle.json
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# ── 실험 산출물 (results/ 의 CSV·YAML·작은 그림은 커밋, 로그는 제외) ──
+results/logs/
+wandb/
+mlruns/
+
+# ── 에디터·OS ──
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+
+# ══ 아래는 GitHub 기본 Python 템플릿 (원격 dev에 있던 내용) ══
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
