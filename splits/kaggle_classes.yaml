@@ -1,0 +1,19 @@
+seed: 0
+head_train:
+- 11214 Bush 3M friction with Cross axle
+- 3003 Brick 2x2
+- 3004 Brick 1x2
+- 3022 Plate 2x2
+- 3023 Plate 1x2
+- 3024 Plate 1x1
+- 32123 half Bush
+- 3673 Peg 2M
+- 3713 Bush for Cross Axle
+- 6632 Technic Lever 3M
+test:
+- 18651 Cross Axle 2M with Snap friction
+- 2357 Brick corner 1x2x2
+- 3005 Brick 1x1
+- 3040 Roof Tile 1x2x45deg
+- 3069 Flat Tile 1x2
+- 3794 Plate 1X2 with 1 Knob

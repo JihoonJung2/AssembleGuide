@@ -1,0 +1,7 @@
+dataset,method,backbone,shots,n_way,episodes,accuracy_mean,accuracy_std,train_images_per_class,add_block_sec
+kaggle_lego16,resnet18_proto,resnet18,1,5,600,0.4754,0.0831,0,0.007
+kaggle_lego16,resnet18_proto,resnet18,3,5,600,0.5795,0.0797,0,0.02
+kaggle_lego16,resnet18_proto,resnet18,5,5,600,0.6229,0.0856,0,0.033
+kaggle_lego16,dinov2_vits14_proto,dinov2_vits14,1,5,600,0.5725,0.0958,0,0.009
+kaggle_lego16,dinov2_vits14_proto,dinov2_vits14,3,5,600,0.7009,0.0891,0,0.027
+kaggle_lego16,dinov2_vits14_proto,dinov2_vits14,5,5,600,0.7489,0.0837,0,0.045
