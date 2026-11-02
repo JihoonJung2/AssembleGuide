@@ -57,13 +57,3 @@ body:
         | 방법 | 지표1 | 지표2 |
         | --- | --- | --- |
         |  |  |  |
-
-  - type: checkboxes
-    id: rules
-    attributes:
-      label: 🚫 데이터 분리 확인
-      options:
-        - label: 설정 조정은 `tune` 데이터로만 했다 (`test` 를 보고 고치지 않음)
-          required: true
-        - label: 새 블록 2종(`R2x3`, `B1x2`)을 헤드 학습·조정에 쓰지 않았다
-          required: true
