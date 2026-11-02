@@ -1,0 +1,15 @@
+{
+  "id": "<kaggle-username>/assembleguide-exp2-backbone",
+  "title": "assembleguide-exp2-backbone",
+  "code_file": "exp2_backbone.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [
+    "joosthazelzet/lego-brick-images"
+  ],
+  "competition_sources": [],
+  "kernel_sources": []
+}

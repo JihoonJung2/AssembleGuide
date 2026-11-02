@@ -57,6 +57,19 @@ pip install -e .
 
 Python 3.11 기준. Kaggle 노트북에서는 `requirements-kaggle.txt`를 쓴다.
 
+- 레포가 OneDrive 같은 동기화 폴더 안에 있으면 가상환경은 밖에 만든다 (예: `C:\Users\<me>\venvs\assembleguide`). 수만 개 파일이 동기화되며 느려진다.
+- ultralytics가 `opencv-python`을 같이 깔아 `opencv-contrib-python`(ArUco 포함)과 충돌하면 contrib만 남긴다:
+  `pip uninstall -y opencv-python opencv-contrib-python && pip install opencv-contrib-python`
+
+## Kaggle 실험 (실험 2 예비: ResNet18 vs DINOv2)
+
+1. Kaggle에서 New Notebook → File → Import Notebook → `kaggle/exp2_backbone/exp2_backbone.ipynb`
+2. Add Input → `joosthazelzet/lego-brick-images`, Settings → GPU T4 · Internet On
+3. 첫 코드 셀의 `BRANCH`를 확인하고 Run All
+4. Output의 `results/`, `splits/`를 받아 레포에 커밋
+
+CLI로 돌리려면 `kaggle/exp2_backbone/kernel-metadata.json`의 `id`에 Kaggle 사용자 이름을 넣고 `kaggle kernels push -p kaggle/exp2_backbone`.
+
 ## 실행
 
 ```bash
