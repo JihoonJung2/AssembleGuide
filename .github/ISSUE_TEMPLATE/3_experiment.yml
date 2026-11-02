@@ -1,0 +1,69 @@
+name: "🧪 실험"
+description: 실험 계획·실행·결과 기록
+title: "[exp] "
+labels: ["exp"]
+body:
+  - type: dropdown
+    id: exp
+    attributes:
+      label: 🧪 실험
+      options:
+        - 실험 1 — 손 가림 판정
+        - 실험 2 — 블록 인식 (few-shot)
+        - 실험 3 — 층 판정
+        - 실험 4 — 사용자 실험
+    validations:
+      required: true
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: ❓ 확인하려는 것
+      placeholder: "예: 다중 프레임 다수결이 오경보율을 얼마나 줄이는지"
+    validations:
+      required: true
+
+  - type: textarea
+    id: methods
+    attributes:
+      label: ⚖️ 비교 방법
+      placeholder: |
+        실험 1: single / hand_mask / fixed_wait / settle / final
+        실험 2: HSV / YOLO(5·20·50·150장) / ResNet18 / DINOv2 / +헤드 / +색·면적
+    validations:
+      required: true
+
+  - type: textarea
+    id: data
+    attributes:
+      label: 🗂️ 데이터·분할
+      value: |
+        - 데이터:
+        - 분할 파일 (`splits/`):
+        - 시드:
+
+  - type: textarea
+    id: metrics
+    attributes:
+      label: 📏 지표
+      placeholder: "판정 정확도, 오경보율, 놓친 오류율, 판정 지연, FPS / 정확도, 필요한 사진 수, 새 블록 추가 시간"
+
+  - type: textarea
+    id: result
+    attributes:
+      label: 📊 결과
+      description: 실험이 끝나면 채우기. 결과 파일은 `results/{실험}_{YYMMDD}.csv` + `.yaml`
+      value: |
+        | 방법 | 지표1 | 지표2 |
+        | --- | --- | --- |
+        |  |  |  |
+
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: 🚫 데이터 분리 확인
+      options:
+        - label: 설정 조정은 `tune` 데이터로만 했다 (`test` 를 보고 고치지 않음)
+          required: true
+        - label: 새 블록 2종(`R2x3`, `B1x2`)을 헤드 학습·조정에 쓰지 않았다
+          required: true
