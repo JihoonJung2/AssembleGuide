@@ -39,12 +39,6 @@ body:
       description: 에러 메시지나 `results/logs/*.jsonl` 해당 줄
       render: shell
 
-  - type: textarea
-    id: screenshot
-    attributes:
-      label: 📸 스크린샷
-      description: 화면 캡처나 GIF를 끌어다 놓으세요
-
   - type: dropdown
     id: camera
     attributes:

@@ -8,27 +8,6 @@ body:
       value: |
         > 브랜치는 `feat/파트-기능` 으로 따고, PR은 `dev` 로 보내요.
 
-  - type: dropdown
-    id: module
-    attributes:
-      label: 🧩 모듈
-      options:
-        - board (판 인식)
-        - hand (손 인식·상태 머신)
-        - change (변화 검출)
-        - recog (블록 인식)
-        - layer (층 판정)
-        - verify (판정)
-        - ar (2D 오버레이)
-        - baselines (HSV·YOLO)
-        - app (메인 루프·통합)
-        - server (FastAPI)
-        - dashboard (Streamlit)
-        - experiments / scripts
-        - 기타
-    validations:
-      required: true
-
   - type: textarea
     id: what
     attributes:
@@ -44,16 +23,6 @@ body:
       description: 함수, 입력 → 출력. 기존 명세와 달라지면 꼭 적기
       render: python
       placeholder: "StateMachine.update(hand_state: HandState, t: float) -> str  # idle / hand_in / settling / judge"
-
-  - type: checkboxes
-    id: done
-    attributes:
-      label: ✅ 완료 조건
-      options:
-        - label: 영상 파일 하나로 단독 실행되는 데모 (`python -m assembleguide.<모듈>.demo --video x.mp4`)
-        - label: 숫자 설정값은 `configs/default.yaml` 에
-        - label: 설정으로 끄고 켤 수 있음 (baseline 비교용)
-        - label: 모듈 사이 좌표는 판 기준 mm
 
   - type: textarea
     id: ref
