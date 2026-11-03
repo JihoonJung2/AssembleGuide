@@ -1,0 +1,30 @@
+# 로컬(노트북)용. 설치: pip install -r requirements.txt && pip install -e .
+# Windows PyPI의 torch 는 CPU 버전 (실시간 추론은 노트북 CPU 기준)
+
+# 딥러닝·인식
+torch>=2.2
+torchvision>=0.17
+ultralytics>=8.3        # YOLO11n-cls baseline
+
+# 비전
+opencv-contrib-python>=4.9   # ArUco 포함
+mediapipe>=0.10.14           # Hand Landmarker
+
+# 서버·대시보드
+fastapi>=0.110
+uvicorn[standard]>=0.29
+streamlit>=1.35
+
+# 공통
+numpy
+pandas
+pyyaml
+pillow
+matplotlib
+tqdm
+
+# 도구
+kaggle          # Kaggle CLI (kernels push / output)
+black
+ruff
+pytest

@@ -1,0 +1,14 @@
+{
+  "id": "D01",
+  "name": "1층 5단계 기본",
+  "plate": [12, 6],
+  "max_layer": 1,
+  "start": [1, 1],
+  "steps": [
+    {"step": 1, "block": "R2x4", "rot": 0, "layer": 1},
+    {"step": 2, "block": "B2x2", "ref": 1, "side": "right", "align": "start", "rot": 0, "layer": 1},
+    {"step": 3, "block": "Y2x8", "ref": 1, "side": "down", "align": "start", "rot": 0, "layer": 1},
+    {"step": 4, "block": "B2x4", "ref": 2, "side": "right", "align": "start", "rot": 0, "layer": 1},
+    {"step": 5, "block": "R2x2", "ref": 3, "side": "right", "align": "end", "rot": 0, "layer": 1}
+  ]
+}

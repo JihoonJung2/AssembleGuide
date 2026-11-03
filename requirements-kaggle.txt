@@ -1,0 +1,3 @@
+# Kaggle 노트북용. torch·torchvision·numpy·pandas·pyyaml·pillow·matplotlib·tqdm 은 Kaggle 기본 사용.
+# 설치: pip install -r requirements-kaggle.txt && pip install -e . --no-deps
+ultralytics>=8.3
