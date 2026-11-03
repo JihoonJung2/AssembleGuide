@@ -1,0 +1,18 @@
+# 블록 세트. ID 규칙: {색}{짧은변}x{긴변}{형태} (형태: 일반 생략, S 경사)
+# w·h 는 위에서 본 바닥 칸 수(듀플로 스터드 16 mm). 판별은 상단 카메라만 쓴다.
+# 판 색(초록)과 같은 색, 위에서 봐서 구분 안 되는 블록(아치 등)은 넣지 않는다.
+# role: base = 기본 세트 / new = 새 블록 (헤드 학습·설정 조정에 쓰지 않음, 등록만)
+
+blocks:
+  - {id: R2x2,  color: R, w: 2, h: 2, shape: brick, role: base}
+  - {id: R2x4,  color: R, w: 2, h: 4, shape: brick, role: base}
+  - {id: B2x2,  color: B, w: 2, h: 2, shape: brick, role: base}
+  - {id: B2x4,  color: B, w: 2, h: 4, shape: brick, role: base}
+  - {id: Y2x2,  color: Y, w: 2, h: 2, shape: brick, role: base}
+  - {id: Y2x8,  color: Y, w: 2, h: 8, shape: brick, role: base}
+  # 새 블록: 기존 2x2와 색·면적이 같고 모양만 다름 (스터드 한 줄 + 경사면)
+  - {id: R2x2S, color: R, w: 2, h: 2, shape: slope, role: new}
+  - {id: B2x2S, color: B, w: 2, h: 2, shape: slope, role: new}
+  # 추가 후보 (필요 시 주석 해제)
+  # - {id: R2x3S, color: R, w: 2, h: 3, shape: slope, role: new}
+  # - {id: R3x4S, color: R, w: 3, h: 4, shape: slope, role: new}
