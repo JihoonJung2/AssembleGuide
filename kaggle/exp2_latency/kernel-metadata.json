@@ -1,0 +1,13 @@
+{
+  "id": "<kaggle-username>/assembleguide-exp2-latency",
+  "title": "assembleguide-exp2-latency",
+  "code_file": "exp2_latency.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

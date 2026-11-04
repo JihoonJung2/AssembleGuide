@@ -1,0 +1,28 @@
+# 판정·인식 설정값. 코드에 숫자를 박지 않고 여기서 읽는다.
+# use_* 스위치는 실험 1·2에서 baseline과 비교하려고 둔다.
+
+judge:
+  use_hand_mask: true
+  use_settle: true
+  settle_frames: 10        # 손 빠진 뒤 안정 대기 프레임
+  fixed_wait_sec: 1.0      # 고정 N초 대기 baseline
+  use_multi_frame: true
+  judge_frames: 5          # 다수결 K (위치·회전은 K프레임 전부 사용)
+  long_hold_sec: 5.0
+  pos_tol_mm: 4
+  rot_tol_deg: 15
+
+change:
+  min_area_mm2: 50
+
+recog:
+  backbone: dinov2_vits14  # 또는 resnet18
+  use_head: true
+  use_color: true
+  use_area: true
+  shots: 5
+  img_size: 224
+  # 판정 1번에 블록 종류를 인식할 프레임 수. judge_frames 중 가장 깨끗한 N장(블록 영역이 온전하고 손과 안 겹침).
+  # judge_frames 와 같으면 전부 인식. 속도: experiments/exp2_recog/latency_bench.py
+  recog_frames: 3
+  recog_batch: true        # 고른 크롭을 한 번에 묶어 처리 (false 면 한 장씩)
