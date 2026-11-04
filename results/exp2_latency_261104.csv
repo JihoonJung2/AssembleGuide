@@ -1,0 +1,9 @@
+backbone,device,img_size,frames,mode,ms_median,ms_p90,ms_per_crop,vs_5seq
+resnet18,cpu,224,3,sequential,103.7,108.1,34.6,0.59
+resnet18,cpu,224,3,batch,90.9,96.6,30.3,0.52
+resnet18,cpu,224,5,sequential,176.0,187.5,35.2,1.0
+resnet18,cpu,224,5,batch,142.0,148.1,28.4,0.81
+dinov2_vits14,cpu,224,3,sequential,269.6,278.5,89.9,0.61
+dinov2_vits14,cpu,224,3,batch,241.9,249.0,80.6,0.54
+dinov2_vits14,cpu,224,5,sequential,445.3,464.3,89.1,1.0
+dinov2_vits14,cpu,224,5,batch,389.4,400.7,77.9,0.87

@@ -1,0 +1,21 @@
+backbones:
+- resnet18
+- dinov2_vits14
+frames:
+- 3
+- 5
+img_size: 224
+devices:
+- cpu
+reps: 30
+warmup: 5
+threads: null
+out_dir: results
+seed: 0
+crop_px:
+- 180
+- 90
+cpu: Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
+torch_threads: 4
+torch: 2.15.0+cpu
+gpu: null
